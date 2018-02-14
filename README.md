@@ -6,9 +6,12 @@
 
 In this video we are going to talk about Content-Types and Content Negotiation.
 
-| Method | URI | Status | Description |
-|--------|-----|--------|-------------|
-| GET    | /api/version | 200 |  |
+| Method | URI          | Status | Description |
+|--------|--------------|--------|-------------|
+| GET    | /api/version | 200    | Get version string based on header |
+| GET    | /api/documents/magic.gif | 200 | Get and display GIF |
+| GET    | /api/documents/me.jpg | 200 | Get and download JPEG |
+
 
 ### Video 3.2: Easy Data Binding using JSON-B
 
