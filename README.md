@@ -19,8 +19,8 @@ In this video we are showing how to use JSON-B for easy data binding.
 
 | Method | URI | Status | Description |
 |--------|-----|--------|-------------|
-| GET    | /api/json-b/ | 200 | Marhsall JSON-B annotated POJO |
-| POST   | /api/json-b/ | 204 | Unmarshall JSON-B annotated POJO |
+| GET    | /api/json-b/ | 200 | Marshall JSON-B annotated POJO |
+| POST   | /api/json-b/ | 204 | Unmarshall and update JSON-B annotated POJO |
 | GET    | /api/json-b/custom | 200 | Marshall custom POJO using Jsonb |
 | POST   | /api/json-b/custom | 204 | Unmarshall custom POJO using Jsonb |
 
@@ -30,7 +30,9 @@ In this video we are showing how to use JSON-P for flexible JSON processing.
 
 | Method | URI | Status | Description |
 |--------|-----|--------|-------------|
-| GET    | /api/json-p/ | 200 |  |
+| GET    | /api/json-p/ | 200 | Marshall a JsonArray of JsonObject using JSON-P |
+| POST   | /api/json-p/ | 204 | Unmarshall and Update a JsonArray of JsonObject using JSON-P |
+| PATCH  | /api/json-p/ | 204 | Patch a JsonArray of JsonObject using JSON-P Pointer |
 
 ### Video 2.4: Implementing hypermedia-driven REST APIs
 
