@@ -19,7 +19,10 @@ In this video we are showing how to use JSON-B for easy data binding.
 
 | Method | URI | Status | Description |
 |--------|-----|--------|-------------|
-| GET    | /api/json-b/ | 200 |  |
+| GET    | /api/json-b/ | 200 | Marhsall JSON-B annotated POJO |
+| POST   | /api/json-b/ | 204 | Unmarshall JSON-B annotated POJO |
+| GET    | /api/json-b/custom | 200 | Marshall custom POJO using Jsonb |
+| POST   | /api/json-b/custom | 204 | Unmarshall custom POJO using Jsonb |
 
 ### Video 3.3: Flexible JSON processing with JSON-P
 
