@@ -8,10 +8,7 @@ import javax.json.bind.JsonbConfig;
 import javax.json.bind.annotation.*;
 import javax.json.bind.config.PropertyNamingStrategy;
 import javax.json.bind.config.PropertyOrderStrategy;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -32,7 +29,8 @@ public class JsonbResource {
     private CustomJsonbPojo customJsonbPojo;
 
     @PostConstruct
-    void initialize() {
+    @HEAD
+    public void initialize() {
         jsonbPojo = new JsonbPojo("Hello World.", 42, LocalDate.now());
 
         customJsonbPojo = new CustomJsonbPojo();
@@ -75,6 +73,7 @@ public class JsonbResource {
         LOGGER.log(Level.INFO, "Custom Unmarshalled {0}", customJsonbPojo);
     }
 
+    @JsonbNillable
     @JsonbPropertyOrder(value = {"message", "answerToEverything", "today"})
     public static class JsonbPojo {
 
