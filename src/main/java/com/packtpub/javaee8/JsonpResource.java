@@ -19,6 +19,7 @@ public class JsonpResource {
     private JsonArray jsonArray;
 
     @PostConstruct
+    @HEAD
     public void initialize() {
         this.jsonArray = Json.createArrayBuilder()
                 .add(Json.createObjectBuilder()

@@ -85,4 +85,10 @@ public class JsonpResourceIntegrationTest {
         JsonArray jsonArray = webTarget.request().accept(MediaType.APPLICATION_JSON).get(JsonArray.class);
         assertThat(jsonArray.getJsonObject(0).getString("aString")).isEqualTo("Patched Json-P");
     }
+
+    @Test
+    public void _99_Reset() {
+        Response response = webTarget.request().head();
+        assertThat(response.getStatus()).isEqualTo(204);
+    }
 }
