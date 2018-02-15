@@ -3,7 +3,9 @@ package com.packtpub.javaee8;
 import org.glassfish.jersey.jsonb.JsonBindingFeature;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -16,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class VersionResourceIntegrationTest {
 
     private Client client;
