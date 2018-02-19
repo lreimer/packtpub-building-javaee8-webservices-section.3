@@ -19,9 +19,6 @@ public class JAXRSConfiguration extends Application {
         classes.add(DocumentsResource.class);
         classes.add(MultiPartFeature.class);
 
-        classes.add(HateosResource.class);
-        classes.add(JsonbResource.class);
-        classes.add(JsonpResource.class);
         classes.add(VersionResource.class);
 
         return classes;
