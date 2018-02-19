@@ -5,7 +5,10 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonPatch;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.HEAD;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,8 +32,7 @@ public class JsonpResource {
 
     // TODO add marshalling and unmarshalling
 
-    @PATCH
-    @Consumes(MediaType.APPLICATION_JSON_PATCH_JSON)
+    // TODO add annotations
     public void patch(JsonArray jsonPatchArray) {
         LOGGER.log(Level.INFO, "Unmarshalled JSON-P Patch {0}.", jsonPatchArray);
 
