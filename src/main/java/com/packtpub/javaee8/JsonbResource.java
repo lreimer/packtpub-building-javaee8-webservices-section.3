@@ -8,12 +8,14 @@ import javax.json.bind.JsonbConfig;
 import javax.json.bind.annotation.*;
 import javax.json.bind.config.PropertyNamingStrategy;
 import javax.json.bind.config.PropertyOrderStrategy;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.HEAD;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Locale;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @ApplicationScoped
@@ -50,29 +52,7 @@ public class JsonbResource {
                 .withConfig(jsonbConfig).build();
     }
 
-    @GET
-    public JsonbPojo marshall() {
-        return jsonbPojo;
-    }
-
-    @POST
-    public void unmarshall(JsonbPojo pojo) {
-        LOGGER.log(Level.INFO, "Default Unmarshalled {0}", pojo);
-        this.jsonbPojo = pojo;
-    }
-
-    @GET
-    @Path("/custom")
-    public String marshallCustom() {
-        return jsonb.toJson(customJsonbPojo);
-    }
-
-    @POST
-    @Path("/custom")
-    public void unmarshallCustom(String jsonBody) {
-        customJsonbPojo = jsonb.fromJson(jsonBody, CustomJsonbPojo.class);
-        LOGGER.log(Level.INFO, "Custom Unmarshalled {0}", customJsonbPojo);
-    }
+    // TODO implement REST methods
 
     @JsonbNillable
     @JsonbPropertyOrder(value = {"message", "answerToEverything", "today"})

@@ -4,16 +4,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.json.bind.Jsonb;
-import javax.json.bind.JsonbBuilder;
-import javax.json.bind.JsonbConfig;
 import javax.json.bind.annotation.*;
-import javax.json.bind.config.BinaryDataStrategy;
-import javax.json.bind.config.PropertyNamingStrategy;
-import javax.json.bind.config.PropertyOrderStrategy;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Locale;
 import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -30,16 +24,7 @@ public class JsonbTest {
 
     @Before
     public void setUp() throws Exception {
-        JsonbConfig jsonbConfig = new JsonbConfig()
-                .withPropertyOrderStrategy(PropertyOrderStrategy.LEXICOGRAPHICAL)
-                .withNullValues(true)
-                .withPropertyNamingStrategy(PropertyNamingStrategy.LOWER_CASE_WITH_DASHES)
-                .withFormatting(false)
-                .withDateFormat("dd.MM.yyyy", Locale.GERMANY)
-                .withBinaryDataStrategy(BinaryDataStrategy.BASE_64)
-                .withLocale(Locale.GERMANY);
-
-        jsonb = JsonbBuilder.create(jsonbConfig);
+        // TODO create JsonbConfig and Jsonb instance
     }
 
     @Test
