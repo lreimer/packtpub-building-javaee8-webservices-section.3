@@ -13,21 +13,21 @@ import java.util.logging.Logger;
 @ApplicationScoped
 @Path("json-p")
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class JsonpResource {
 
     private static final Logger LOGGER = Logger.getAnonymousLogger();
 
     private JsonArray jsonArray;
 
-    @PostConstruct
     @HEAD
+    @PostConstruct
     public void initialize() {
         // TODO initialize me
         this.jsonArray = null;
     }
 
     // TODO add marshalling and unmarshalling
-
 
     @PATCH
     @Consumes(MediaType.APPLICATION_JSON_PATCH_JSON)
