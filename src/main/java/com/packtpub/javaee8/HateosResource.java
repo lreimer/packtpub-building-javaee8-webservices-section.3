@@ -70,25 +70,15 @@ public class HateosResource {
         @GET
         @Path("/{isbn}")
         public Response book(@PathParam("isbn") String isbn) {
-            Book book = books.get(isbn);
-            URI bookUri = createBookResourceUri(isbn, uriInfo);
-            URI authorUri = createAuthorResourceUri(book.authorId, uriInfo);
-            JsonObject jsonObject = asJsonObject(book, bookUri, authorUri);
-            return Response.ok(jsonObject)
-                    .link(bookUri, "self")
-                    .link(authorUri, "author")
-                    .build();
+            // TODO implement HATEOS authors
+            return null;
         }
 
         private JsonObject asJsonObject(Book book, URI bookUri, URI authorUri) {
             return Json.createObjectBuilder()
                     .add("isbn", book.isbn)
                     .add("title", book.title)
-                    .add("_links", Json.createObjectBuilder()
-                            .add("self", Json.createObjectBuilder()
-                                    .add("href", bookUri.toString()))
-                            .add("author", Json.createObjectBuilder()
-                                    .add("href", authorUri.toString())))
+                    // TODO add _links JSON objects
                     .build();
         }
     }
@@ -134,26 +124,15 @@ public class HateosResource {
         @GET
         @Path("/{authorId}")
         public Response author(@PathParam("authorId") Integer authorId) {
-            String author = authors.get(authorId);
-            URI autorUri = createAuthorResourceUri(authorId, uriInfo);
-            URI booksUri = createBooksResourceUri(authorId, uriInfo);
-
-            JsonObject jsonObject = asJsonObject(authorId, author, autorUri, booksUri);
-            return Response.ok(jsonObject)
-                    .link(autorUri, "self")
-                    .link(booksUri, "books")
-                    .build();
+            // TODO implement HATEOS authors
+            return null;
         }
 
         private JsonObject asJsonObject(Integer authorId, String name, URI autorUri, URI booksUri) {
             return Json.createObjectBuilder()
                     .add("id", authorId)
                     .add("name", name)
-                    .add("_links", Json.createObjectBuilder()
-                            .add("self", Json.createObjectBuilder()
-                                    .add("href", autorUri.toString()))
-                            .add("books", Json.createObjectBuilder()
-                                    .add("href", booksUri.toString())))
+                    // TODO add _links JSON objects
                     .build();
         }
     }
