@@ -87,55 +87,17 @@ public class JsonpTest {
 
     @Test
     public void testJsonPointer() {
-        JsonReader jsonReader = Json.createReader(new StringReader("{\"aString\":\"Hello Json-P\",\"arrayOfInt\":[1,2,3]}"));
-        JsonObject jsonObject = jsonReader.readObject();
-        JsonArray jsonArray = jsonObject.getJsonArray("arrayOfInt");
-
-        // access an array value by index
-        JsonPointer jsonPointer = Json.createPointer("/arrayOfInt/1");
-        JsonValue jsonValue = jsonPointer.getValue(jsonObject);
-        assertThat(jsonValue).isInstanceOf(JsonNumber.class);
-        assertThat(jsonValue).isEqualTo(jsonArray.get(1));
-
-        // replace the array value by index
-        jsonObject = jsonPointer.replace(jsonObject, Json.createValue(42));
-        jsonArray = jsonObject.getJsonArray("arrayOfInt");
-        assertThat(jsonArray.getInt(1)).isEqualTo(42);
-
-        // remove the array value by index
-        jsonObject = jsonPointer.remove(jsonObject);
-        jsonArray = jsonObject.getJsonArray("arrayOfInt");
-        assertThat(jsonArray.size()).isEqualTo(2);
+        // TODO Implement JSON pointer test
     }
 
     @Test
     public void testJsonPatch() {
-        JsonReader jsonReader = Json.createReader(new StringReader("{\"aString\":\"Hello Json-P\",\"arrayOfInt\":[1,2,3]}"));
-        JsonObject jsonObject = jsonReader.readObject();
-
-        JsonPatch patch = Json.createPatchBuilder()
-                .replace("/aString", "Patched Json-P.")
-                .remove("/arrayOfInt/1")
-                .build();
-
-        jsonObject = patch.apply(jsonObject);
-        assertThat(jsonObject.getString("aString")).isEqualTo("Patched Json-P.");
-        assertThat(jsonObject.getJsonArray("arrayOfInt").size()).isEqualTo(2);
+        // TODO Implement JSON Patch test
     }
 
     @Test
     public void testJsonDiff() {
-        JsonObject source = Json.createObjectBuilder().add("aString", "abc").build();
-        JsonObject target = Json.createObjectBuilder().add("aString", "xyz").build();
-
-        JsonPatch diff = Json.createDiff(source, target);
-        JsonObject replace = diff.toJsonArray().getJsonObject(0);
-        assertThat(replace.getString("op")).isEqualTo("replace");
-        assertThat(replace.getString("path")).isEqualTo("/aString");
-        assertThat(replace.getString("value")).isEqualTo("xyz");
-
-        source = diff.apply(source);
-        assertThat(source).isEqualTo(target);
+        // TODO implement JSON Diff test
     }
 
 

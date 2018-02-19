@@ -2,10 +2,11 @@ package com.packtpub.javaee8;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.json.*;
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonPatch;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,32 +22,12 @@ public class JsonpResource {
     @PostConstruct
     @HEAD
     public void initialize() {
-        this.jsonArray = Json.createArrayBuilder()
-                .add(Json.createObjectBuilder()
-                        .add("aString", "Hello Json-P 1")
-                        .add("aInteger", 42)
-                        .add("aBoolean", false)
-                        .add("aNullValue", JsonValue.NULL))
-                .add(Json.createObjectBuilder()
-                        .add("aString", "Hello Json-P 2")
-                        .add("aInteger", 23)
-                        .add("aBoolean", true))
-                .build();
+        // TODO initialize me
+        this.jsonArray = null;
     }
 
-    @GET
-    public JsonArray marshall() {
-        return jsonArray;
-    }
+    // TODO add marshalling and unmarshalling
 
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void unmarshall(InputStream jsonBody) {
-        JsonReader reader = Json.createReader(jsonBody);
-        this.jsonArray = reader.readArray();
-
-        LOGGER.log(Level.INFO, "Unmarshalled JSON-P {0}.", jsonArray);
-    }
 
     @PATCH
     @Consumes(MediaType.APPLICATION_JSON_PATCH_JSON)
