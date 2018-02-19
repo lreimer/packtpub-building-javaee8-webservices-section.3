@@ -41,7 +41,9 @@ public class JsonbResourceIntegrationTest {
 
     @Test
     public void _1_GetJsonb() {
-        JsonbResource.JsonbPojo pojo = webTarget.request().accept(MediaType.APPLICATION_JSON).get(JsonbResource.JsonbPojo.class);
+        JsonbResource.JsonbPojo pojo = webTarget.request()
+                .accept(MediaType.APPLICATION_JSON)
+                .get(JsonbResource.JsonbPojo.class);
         assertThat(pojo).isNotNull();
         assertThat(pojo.getMessage()).isEqualTo("Hello World.");
         assertThat(pojo.getAnswerToEverything()).isEqualTo(42);
@@ -57,7 +59,9 @@ public class JsonbResourceIntegrationTest {
 
     @Test
     public void _3_GetUpdatedJsonb() {
-        JsonbResource.JsonbPojo pojo = webTarget.request().accept(MediaType.APPLICATION_JSON).get(JsonbResource.JsonbPojo.class);
+        JsonbResource.JsonbPojo pojo = webTarget.request()
+                .accept(MediaType.APPLICATION_JSON)
+                .get(JsonbResource.JsonbPojo.class);
         assertThat(pojo).isNotNull();
         assertThat(pojo.getMessage()).isEqualTo("Updated JSON-B.");
         assertThat(pojo.getAnswerToEverything()).isNull();

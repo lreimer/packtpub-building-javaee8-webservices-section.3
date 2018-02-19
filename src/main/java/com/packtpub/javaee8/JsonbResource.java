@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 @ApplicationScoped
 @Path("json-b")
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class JsonbResource {
 
     private static final Logger LOGGER = Logger.getAnonymousLogger();
